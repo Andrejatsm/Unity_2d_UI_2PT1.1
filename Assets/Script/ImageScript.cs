@@ -13,6 +13,9 @@ public class ImageScript : MonoBehaviour
     public GameObject rightToggle;
     public Sprite[] spriteArray;
     public GameObject imageHolder;
+    public GameObject sizeSlider;
+    public GameObject rotationSlider;
+
 
 
     public void showBean(bool value)
@@ -58,5 +61,18 @@ public class ImageScript : MonoBehaviour
         else if(index == 2)
             imageHolder.GetComponent<Image>().sprite = spriteArray[2];
     }
+    public void ChangeSize()
+    {
+        float size = sizeSlider.GetComponent<Slider>().value;
+        imageHolder.transform.localScale = new Vector2(1F * size, 1F * size);
+
+
+    }
+    public void changeRotation()
+    {
+        float rotation = rotationSlider.GetComponent<Slider>().value;
+        imageHolder.transform.localRotation = Quaternion.Euler(0, 0, rotation * 360);
+    }
+
 
 }
